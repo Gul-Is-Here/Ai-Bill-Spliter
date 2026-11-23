@@ -1,0 +1,48 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function isOwner(uid) {
+      return request.auth != null && request.auth.uid == uid;
+    }
+
+    match /users/{uid} {
+      allow read: if isOwner(uid);
+      allow create, update: if isOwner(uid)
+        && request.resource.data.keys().hasOnly(['email', 'displayName', 'photoUrl', 'lastLoginAt']);
+      allow delete: if false; // account deletion goes through the deleteAccount function
+
+      match /bills/{billId} {
+        allow read, delete: if isOwner(uid);
+        allow create, update: if isOwner(uid)
+          && request.resource.data.id == billId
+          && request.resource.data.currency is string
+          && request.resource.data.currency.size() == 3
+          && request.resource.data.items is list
+          && request.resource.data.items.size() <= 200
+          && request.resource.data.participants is list
+          && request.resource.data.participants.size() <= 50
+          && (!('receiptPath' in request.resource.data)
+              || request.resource.data.receiptPath == null
+              || request.resource.data.receiptPath.matches('users/' + uid + '/receipts/.*'));
+      }
+
+      match /groups/{groupId} {
+        allow read, delete: if isOwner(uid);
+        allow create, update: if isOwner(uid)
+          && request.resource.data.id == groupId
+          && request.resource.data.name is string
+          && request.resource.data.name.size() <= 100
+          && request.resource.data.members is list
+          && request.resource.data.members.size() <= 50
+          && request.resource.data.settlements is list
+          && request.resource.data.settlements.size() <= 1000;
+      }
+
+      // Daily AI quotas: written only by Cloud Functions (Admin SDK bypasses rules).
+      match /usage/{day} {
+        allow read: if isOwner(uid);
+        allow write: if false;
+      }
+    }
+  }
+}

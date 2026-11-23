@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "915868330907",
+    "project_id": "project1-76fd7",
+    "storage_bucket": "project1-76fd7.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915868330907:android:2969d1ac96a70a77768f3e",
+        "android_client_info": {
+          "package_name": "com.aibillsplierapp.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915868330907-bu75sh9ubblnlock6fo3iep9sh8bp9un.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHfjL1bumO3kcpjkE5GpDWQil3Prf3GMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915868330907-bu75sh9ubblnlock6fo3iep9sh8bp9un.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "915868330907-momucsg5i3oupv4itsfpnv31sselr41b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aibillsplierapp.app"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:915868330907:android:048bbfa75e5a1a63768f3e",
+        "android_client_info": {
+          "package_name": "com.aibillsplierapp.app.dev"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "915868330907-bu75sh9ubblnlock6fo3iep9sh8bp9un.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCHfjL1bumO3kcpjkE5GpDWQil3Prf3GMk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "915868330907-bu75sh9ubblnlock6fo3iep9sh8bp9un.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "915868330907-momucsg5i3oupv4itsfpnv31sselr41b.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.aibillsplierapp.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

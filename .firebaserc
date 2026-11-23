@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "default": "project1-76fd7",
+    "dev": "project1-76fd7",
+    "prod": "project1-76fd7"
+  }
+}
